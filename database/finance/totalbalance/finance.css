@@ -1,0 +1,309 @@
+:root {
+    --solid: #070707;
+    --medium-solid: #333333;
+    --light-solid: #797979;
+    --very-light-solid: #bebebe;
+    --madly-light-solid: rgb(226, 226, 226);
+    --font-family: 'Montserrat', sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    margin: 0;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, white, rgb(230, 230, 230));
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 12px;
+    height: 100vh; 
+    /* Remove min-height to allow the height to fit the content */
+  }
+  
+  .navbar {
+    background: var(--solid);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 0 25px 25px 0;
+    height: 100%;
+  }
+  
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 3em;
+  }
+  
+  .tab {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .tab:hover {
+    background: #555;
+  }
+  
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    text-align: center;
+    padding: 0.5em;
+    width: fit-content;
+  }
+  
+  /* Change the background color of the dropdown links on hover */
+  .dropdown-content a {
+    color: #f1f1f1;
+    font-size: 0.95em;
+    margin-bottom: 0.4em;
+    padding: 0.2em;
+  }
+  
+  .dropdown-content a:active {
+    color: #f1f1f1;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #1d1d1d;
+    transition: ease-out 0.2s;
+  }
+  
+  .content > h1 {
+    text-align: center;
+    padding: 0.3em;
+    padding-bottom: 1em;
+  }
+  .Course{
+    display: grid;
+    grid-template-columns:  repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .search > input::placeholder {
+    font-size: larger; /* You can adjust the size here */
+    color: var(--light-solid); /* Add the color attribute */
+    font-family: var(--font-family);
+  }
+  .search{
+    margin-bottom: 0.9em;
+  }
+  .total-balance {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  .section {
+    margin-top: 30px;
+  }
+  
+  .section h2 {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .section p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Add responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    .total-balance {
+      overflow-x: auto;
+    }
+  
+    /* Additional responsive styles if needed */
+  }
+  .tab a{
+    color: #fff;
+    text-decoration: none;
+  }
+  .tab a:visited{
+    color: #fff;
+    text-decoration: none;
+  }
+  .tab a:active{
+    color: #fff;
+    text-decoration: none;
+  }
+  .menu-icon{
+    display: none;
+  }
+  .close-icon{
+    display: none;
+  }
+  @media (max-width: 790px) {
+    .navbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-radius: 0px;
+    height: 100vh;
+    background-color: rgba(211, 211, 211, 0.411);
+    color: black;
+    backdrop-filter: blur(10px);
+    width: 50%;
+    display: none;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: -10px 0 10px rgba(0,0,0,0.2);
+    font-size: 1.3em;
+    overflow-x: hidden;
+    transition: all .5s ease;
+    }
+    .menu-icon {
+     display: flex;
+     margin-left: 50%;
+     font-size: 1.5em;
+   }
+   .close-icon {
+     display: flex;
+     cursor: pointer;
+     color: #000000;
+     font-size: 2.5em;
+     position: absolute;
+     bottom: 90px; /* Adjust this value to set the distance from the bottom */
+     right: 70%;
+     transform: translateX(-50%);
+     z-index: 1001; /* Ensure it's above other elements */
+   }
+   .tabs{
+     margin-top: -6em;
+   }
+   #lineGraph{
+     max-height: 5em;
+   }
+   .dropdown:hover .dropdown-content {
+     background-color: rgb(189, 189, 189);
+     padding: 1em;
+     width: 75%;
+   }
+   .dropdown-content ul{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     text-decoration: none;
+     list-style: none;
+     padding: 0;
+   }
+   
+   .dropdown-content a{
+     color: #000000;
+     font-size: 0.95em;
+     margin-bottom: 0.4em;
+   }
+   
+   .dropdown-content a:active{
+     color: #f1f1f1;
+   }
+   
+   .dropdown-content a:hover {
+     background-color: #8d8d8d;
+     transition: ease-out 0.2s;
+   }
+   
+   .dropdown-content { 
+     display: none;
+     z-index: 1;
+     width: 50%;
+   }
+   /* Add a container with relative positioning for the dropdown */
+   .dropdown-container {
+     position: relative;
+   }
+   
+   /* Adjust the styles for the dropdown content within the container */
+   .dropdown-container:hover .dropdown-content {
+     display: block;
+     /* Other styles... */
+   }
+   
+   }
+   
+   @media (max-width: 790px){
+      html{
+       font-size: 85%;
+      }
+      .container {
+        grid-template-columns: 1fr;
+        padding: 1em;
+      }
+      .personal-details h1{
+        text-align: left;
+        font-size: 2.1em;
+      }
+      .total-balance{
+        margin-top: 0px;
+      }
+   }
+   @media (max-width: 477px){
+     .menu-icon {
+       margin-left: 1em;
+     }
+   }
+   /* Add this at the end of your CSS */
+   
+   @media (max-width: 390px){
+     html{
+      font-size: 75%;
+     }
+   }
+   
+   @media (max-width: 290px){
+     html{
+      font-size: 65%;
+     }
+     body{
+       box-sizing: border-box;
+       padding: 0.55em;
+       width: 100%;
+       padding-left: 0;
+     }
+     .container{
+        padding: 1.3em;
+     }
+     .menu-icon {
+        margin-left: 5em;
+      }
+   }
+   .menu-icon{
+    position: fixed;
+     top: 0;
+      right: 0; 
+     margin-right: 3em;
+     margin-top: 3em;
+  }

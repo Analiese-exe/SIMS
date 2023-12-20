@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/database/academicdetails/transcript/transcript.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add your existing styles here */
+
+        .personal-details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 2px solid var(--solid);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .personal-details>p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .personal-details span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .semester-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navbar and tabs remain the same -->
+        <div class="navbar">
+            <div class="tabs">
+                <i class="fas fa-user-graduate" style="text-align: center; font-size: 2em; margin-top: 4px;"></i>
+                <div class="tab"><a href="/database/overview/overview.html">Overview</a></div>
+                <div class="tab"><a href="/database/personal-details/personal.html">Personal Details</a></div>
+                <div class="dropdown">
+                    <div class="tab dropbtn">Registration</div>
+                    <div class="dropdown-content">
+                        <a href="/database/registration/residence/residence.html">Residence</a>
+                        <a href="/database/registration/courses/courses.html">Courses</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="tab">Academic Details</div>
+                    <div class="dropdown-content">
+                        <a href="/database/academicdetails/result/result.html">Semester Result</a>
+                        <a href="/database/academicdetails/transcript/transcript.html">Unofficial Transcript</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="tab">Finance</div>
+                    <div class="dropdown-content">
+                        <a href="/database/finance/totalbalance/finance.html">Total Balance</a>
+                        <a href="/database/finance/invoice/invoice.html">Invoices</a>
+                    </div>
+                </div>
+            </div>
+            <div class="close-icon" onclick="hideSideBar()">
+                <i class="fas fa-door-open"></i>
+              </div>
+        </div>
+
+      <!-- Add these elements inside each semester content -->
+<div class="semester semester-container">
+    <h1>Unofficial Transcript</h1>
+    <div class="menu-icon">
+        <i class="fas fa-bars" onclick="showSideBar()"></i>
+      </div>
+    <div class="content">
+        <div class="personal-details" id="personalDetails"></div>
+        <div class="semester-details" id="semesterDetails1">
+            <h2 class="semester-name">Semester 1</h2>
+            <div class="cgpa-gpa">
+                <p style="display: inline; margin-right: 0.6em;"><span>CGPA:</span> <span id="cgpa1"></span></p>
+                <p style="display: inline;"><span>GPA:</span> <span id="gpa1"></span></p>
+            </div>
+        </div>
+        <div class="result-table" id="resultTable1"></div>
+    </div>
+</div>
+
+<!-- Repeat the above structure for Semester 2 and Semester 3 with unique IDs -->
+
+</div>
+    <script src="/database/academicdetails/result/result.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            // Sample personal details data (replace with your actual data)
+            const personalDetailsData = {
+                Name: "MA",
+                StudentID: "123456",
+                CGPA: "3.75",
+                GraduationDate: "May 2023",
+                School: "Babcock University",
+                Department: "Information Technology"
+            };
+
+            // Function to create and populate the personal details section
+            function createPersonalDetails(data) {
+                const personalDetails = document.getElementById("personalDetails");
+                for (const key in data) {
+                    const p = document.createElement("p");
+                    p.innerHTML = `<span>${key}:</span> ${data[key]}`;
+                    personalDetails.appendChild(p);
+                }
+            }
+
+            // Call the function with the sample personal details data
+            createPersonalDetails(personalDetailsData);
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+    // Sample data for Semester 1 (replace with your actual data)
+    const resultData1 = [
+    { course: "Assembly Language", grade: "A", },
+                { course: "Internet of Things(IoT)", grade: "A", },
+                { course: "Web development", grade: "A", },
+                { course: "Artificial Intelligence", grade: "A",},
+                { course: "Cloud Computing", grade: "A", },
+                { course: "Operating Systems", grade: "A", },
+                { course: "Web Aesthetics", grade: "A", },
+        // Add more data as needed
+    ];
+
+    // Function to calculate CGPA and GPA for a semester
+    function calculateSemesterCGPA_GPA(data) {
+        let totalGradePoints = 0;
+        let totalCredits = 0;
+
+        data.forEach((row) => {
+            // Assuming each course has a credit value, adjust as needed
+            const creditValue = 3; // Replace with the actual credit value for each course
+            totalGradePoints += row.grade === "A" ? 4.0 : 0.0;
+            totalCredits += creditValue;
+        });
+
+        const cgpa = (totalGradePoints / totalCredits).toFixed(2);
+        const gpa = (totalGradePoints / data.length).toFixed(2);
+
+        return { cgpa, gpa };
+    }
+
+    // Function to create and populate the result table
+    function createResultTable(data, tableId, semesterNumber) {
+        const table = document.createElement("table");
+
+        // Create table header
+        const headerRow = table.insertRow();
+        for (const key in data[0]) {
+            if (key !== "link") {
+                const th = document.createElement("th");
+                th.textContent = key.toUpperCase();
+                headerRow.appendChild(th);
+            }
+        }
+
+        // Create table rows
+        data.forEach((row) => {
+            const tr = table.insertRow();
+            for (const key in row) {
+                if (key !== "link") {
+                    const td = tr.insertCell();
+                    // Add regular text content
+                    td.textContent = row[key];
+                }
+            }
+        });
+
+        // Append table to the specified result table div
+        document.getElementById(tableId).appendChild(table);
+
+        // Calculate and populate CGPA and GPA for the semester
+        const { cgpa, gpa } = calculateSemesterCGPA_GPA(data);
+        document.getElementById(`cgpa${semesterNumber}`).textContent = cgpa;
+        document.getElementById(`gpa${semesterNumber}`).textContent = gpa;
+    }
+
+    // Call the function with the sample data for each semester
+    createResultTable(resultData1, "resultTable1", 1);
+    // Repeat the above line for Semester 2 and Semester 3 with appropriate data and IDs
+});
+     
+    </script>
+     <script>
+        function showSideBar() {
+         const navbar = document.querySelector('.navbar');
+         navbar.style.display = (navbar.style.display === 'flex') ? 'none' : 'flex';
+       }
+       function hideSideBar(){
+         const navbar = document.querySelector('.navbar');
+         navbar.style.display = 'none';
+       }
+       
+       </script>
+</body>
+
+</html>

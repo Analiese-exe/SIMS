@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Orbitron&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/database/finance/invoice/invoice.css">
+  <link rel="stylesheet" href="/registration/residence/residence.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,27 +15,27 @@
     <div class="navbar">
         <div class="tabs">
             <i class="fas fa-user-graduate" style="text-align: center; font-size: 2em; margin-top: 4px;"></i>
-          <div class="tab"><a href="/database/overview/overview.html">Overview</a></div>
-          <div class="tab"><a href="/database/personal-details/personal.html">Personal Details</a></div>
+          <div class="tab"><a href="/overview/overview.html">Overview</a></div>
+          <div class="tab"><a href="/personal-details/personal.html">Personal Details</a></div>
           <div class="dropdown">
             <div class="tab dropbtn">Registration</div>
             <div class="dropdown-content">
-              <a href="/database/registration/residence/residence.html">Residence</a>
-              <a href="/database/registration/courses/courses.html">Courses</a>
+              <a href="/registration/residence/residence.html">Residence</a>
+              <a href="/registration/courses/courses.html">Courses</a>
             </div>
           </div>
           <div class="dropdown">
             <div class="tab">Academic Details</div>
             <div class="dropdown-content">
-              <a href="/database/academicdetails/result/result.html">Semester Result</a>
-              <a href="/database/academicdetails/transcript/transcript.html">Unofficial Transcript</a>
+              <a href="/academicdetails/result/result.html">Semester Result</a>
+              <a href="/academicdetails/transcript/transcript.html">Unofficial Transcript</a>
             </div>
           </div> 
           <div class="dropdown">
             <div class="tab">Finance</div>
             <div class="dropdown-content">
-              <a href="/database/finance/totalbalance/finance.html">Total Balance</a>
-              <a href="/database/finance/invoice/invoice.html">Invoices</a>
+              <a href="/finance/totalbalance/finance.html">Total Balance</a>
+              <a href="/finance/invoice/invoice.html">Invoices</a>
             </div>
           </div>
         </div>
@@ -43,12 +43,20 @@
             <i class="fas fa-door-open"></i>
           </div>
       </div>
-      <div class="menu-icon">
-        <i class="fas fa-bars" onclick="showSideBar()"></i>
-      </div>
-      <div class="invoice-container" id="invoiceContainer">
-        <!-- Invoice content will be dynamically populated here -->
-      </div>
+      <div class="residence">
+        <h1>Residence Selection</h1>
+        <div class="menu-icon">
+            <i class="fas fa-bars" onclick="showSideBar()"></i>
+          </div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input class="input-search" type="text" placeholder="Search for a residence" style="background-color: transparent; border: none; outline: none; width: 80%;">
+        </div>
+        <div class="residences">
+          <!-- Residence items will be dynamically generated here -->
+        </div>
+        <button id="submitResidence">Submit</button>
+      </div></div>
       <script>
         function showSideBar() {
          const navbar = document.querySelector('.navbar');
@@ -60,6 +68,6 @@
        }
        
        </script>
-      <script src="/database/finance/invoice/invoice.js"></script>
+    <script src="/registration/residence/residence.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: url('/database/images/enhhancedfonto.jpg') center/cover, linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+      background: url('/images/enhhancedfonto.jpg') center/cover, linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
      image-rendering: crisp-edges;
       background-repeat: no-repeat;
     }
@@ -122,16 +122,16 @@
    <i class="fas fa-user-circle" style="font-size: 5em; position: relative; top: -0.8em;"></i>
    <nav>
     <ul>
-      <a href="/database/users/index.html"><li>STUDENT</li></a>
+      <a href="/users/index.html"><li>STUDENT</li></a>
     </ul>
    </nav>
     <form>
      <div class="input-container">
-      <img src="/database/images/user (1).png" width="25">
+      <img src="/images/user (1).png" width="25">
       <input class="input-field" type="text" placeholder="Username">
      </div>
       <div class="input-container">
-        <img src="/database/images/padlock.png" width="25">
+        <img src="/images/padlock.png" width="25">
         <input class="input-field" type="password" placeholder="Password">
       </div>
       <button class="login-button" type="submit">Login</button>
@@ -157,7 +157,7 @@
         // Check if the entered username and password are valid
         if (enteredUsername === validUsername && enteredPassword === validPassword) {
           // Redirect to the overview.html page if the credentials are valid
-          window.location.href = "/database/overview/overview.html";
+          window.location.href = "/overview/overview.html";
         } else {
           // Display an error message or perform other actions for invalid credentials
           alert("Invalid username or password. Please try again.");

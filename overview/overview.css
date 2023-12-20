@@ -304,7 +304,12 @@ input::placeholder{
 #lineGraph{
   max-height: 5em;
 }
-.dropdown:hover, .dropdown:active .dropdown-content {
+.dropdown:hover .dropdown-content {
+  background-color: rgb(189, 189, 189);
+  padding: 1em;
+  width: 75%;
+}
+.dropdown:active{
   background-color: rgb(189, 189, 189);
   padding: 1em;
   width: 75%;

@@ -25,6 +25,7 @@ const canvas = document.getElementById('lineGraph');
     type: 'line',
     data: data,
     options: {
+      responsive: true,
       scales: {
         x: {
           title: {

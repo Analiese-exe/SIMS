@@ -99,6 +99,34 @@ function searchFunction(event) {
     }
   }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  // Your existing code...
+
+  const tabs = document.querySelectorAll('.tabs .tab');
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  // Function to toggle the dropdown content
+  function toggleDropdown(dropdown) {
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+    dropdownContent.style.display = (dropdownContent.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  // Add click event listeners to tabs
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const pageLink = tab.querySelector('a').getAttribute('href');
+      window.location.href = pageLink;
+    });
+  });
+
+  // Add click event listeners to dropdowns
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', () => {
+      toggleDropdown(dropdown);
+    });
+  });
+});
+
 /*document.addEventListener('DOMContentLoaded', () => {
   // Sample timetable data (replace this with your actual data)
   const timetableData = [

@@ -57,7 +57,11 @@
   .tab:hover {
     background: #555;
   }
-  
+  .dropdown:active{
+    background-color: rgb(189, 189, 189);
+    padding: 1em;
+    width: 75%;
+  }
   .dropdown {
     display: flex;
     flex-direction: column;

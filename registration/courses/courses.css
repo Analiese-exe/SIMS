@@ -76,7 +76,11 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     z-index: 1;
   }
-  
+  .dropdown:active{
+    background-color: rgb(189, 189, 189);
+    padding: 1em;
+    width: 75%;
+  }
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
     display: flex;

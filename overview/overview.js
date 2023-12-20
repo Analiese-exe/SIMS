@@ -99,7 +99,7 @@ function searchFunction(event) {
     }
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   // Sample timetable data (replace this with your actual data)
   const timetableData = [
     { weekday: 'Monday', course: 'Math 101', lecturer: 'Professor Smith', venue: 'Room 101' },
@@ -126,4 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
     cell3.textContent = item.lecturer;
     cell4.textContent = item.venue;
   });
-});
+});*/

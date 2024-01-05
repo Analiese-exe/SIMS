@@ -275,7 +275,7 @@ input::placeholder{
  color: black;
  backdrop-filter: blur(10px);
  width: 50%;
- display: none;
+ transform: translateX(100%);
  justify-content: center;
  z-index: 999;
  box-shadow: -10px 0 10px rgba(0,0,0,0.2);
